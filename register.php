@@ -1,6 +1,10 @@
 <?php
 
-$message = isset($_SESSION['message']) ? $_SESSION['message'] : '';
+$message = '';
+if(isset($_SESSION['message'])){
+    $message = $_SESSION['message'];
+    unset($_SESSION['message']);
+}
 
 $title = "Register";
 require_once 'includes/header.php';
@@ -27,7 +31,7 @@ require_once 'includes/header.php';
 		  </div>
 	</form>
 	<?php echo $message; ?>
-	<p>Already have an account? <a href="index.php"> Login here</a></p>
+	<p>Already have an account? <a href="login.php"> Login here</a></p>
 	</div>
 	</div>
 <?php require_once 'includes/footer.php'; ?>
